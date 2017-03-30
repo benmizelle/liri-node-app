@@ -1,3 +1,5 @@
+// ===============twitter================ //
+
 // Grabs the keys.js data
  var getTweets = require("./keys.js");
 // Gets twitter keys from the keys file storing it in a variable.
@@ -19,24 +21,24 @@ if (process.argv[2] === "my-tweets") {
 console.log("Recent Tweets: " + JSON.stringify(client.get));
 }
 
-
+// ==================request================= //
 
 // Requires request npm package
  var request = require("request");
-
+ var movieTitle = process.argv[3]
 if (process.argv[2] === "movie-this") {
-	request("https://www.omdbapi.com/?"), function(error, response, body) {
+	request("https://www.omdbapi.com/?t=" + movieTitle + "&y=&plot=short&r=json"), function(error, response, body) {
 
   // If the request was successful...
   if (!error && response.statusCode === 200) {
 
     // Then log the body from the site!
-    console.log(body);
+    console.log(JSON.parse(body));
   }
 }
 };
 
-
+// ====================spotify===================== //
 
 // Requires spotify npm package
 var spotify = require("spotify");
