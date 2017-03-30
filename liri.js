@@ -72,9 +72,7 @@ spotify.search({ type: 'track', query: songTitle }, function(err, data) {
 
 // fs package
 var fs = require("fs");
-
-function readFile() {
-	// reads random.txt file
+// reads random.txt file
 fs.readFile("random.txt", "utf8", function(error, data) {
 	var output = data
 if (process.argv[2] === "do-what-it-says") {
@@ -98,6 +96,10 @@ if (process.argv[2] === "do-what-it-says") {
 
 	console.log("================================================================================");
 });
-};
+}
+});
 
-readFile();
+
+
+
+
