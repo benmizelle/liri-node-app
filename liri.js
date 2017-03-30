@@ -16,16 +16,25 @@ if (process.argv[2] === "my-tweets") {
   }
 
 });
-console.log(client);
+console.log("Recent Tweets: " + JSON.stringify(client.get));
 }
+
+
 
 // Requires request npm package
  var request = require("request");
 
+if (process.argv[2] === "movie-this") {
+	request("https://www.omdbapi.com/?"), function(error, response, body) {
 
+  // If the request was successful...
+  if (!error && response.statusCode === 200) {
 
-
-
+    // Then log the body from the site!
+    console.log(body);
+  }
+}
+};
 
 
 
@@ -43,7 +52,7 @@ spotify.search({ type: 'track', query: songTitle }, function(err, data) {
     }
  
     // conosle.log() info we need
-    console.log("==================================");
+    console.log("================================================================================");
     // log artist name
     console.log(("Artist: " + JSON.stringify(data.tracks.items[0].album.artists[0].name, null, 2)));
     // log song name
@@ -53,7 +62,7 @@ spotify.search({ type: 'track', query: songTitle }, function(err, data) {
     // log album name
     console.log("Album Name: " + JSON.stringify(data.tracks.items[0].album.name, null, 2));
 
-	console.log("==================================");
+	console.log("================================================================================");
 });
 
 };
