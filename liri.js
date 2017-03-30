@@ -4,12 +4,30 @@
  var keyList = getTweets.twitterKeys;
 // Requires twitter npm package
  var twitter = require("twitter");
+
+ var client = new twitter ({
+ 	keyList
+ })
+if (process.argv[2] === "my-tweets") {
+	var params = {screen_name: 'nodejs'};
+	client.get('statuses/user_timeline', params, function(error, tweets, response) {
+  if (!error) {
+    console.log(tweets);
+  }
+
+});
+console.log(client);
+}
+
 // Requires request npm package
  var request = require("request");
 
 
-// Take in command line arguments.
-var nodeArgs = process.argv;
+
+
+
+
+
 
 // Requires spotify npm package
 var spotify = require("spotify");
